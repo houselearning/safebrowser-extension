@@ -1,1 +1,47 @@
-Hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tab</title>
+</head>
+
+<body>
+
+<center>
+    <img src="https://sbext.houselearning.org/wp-content/globe.gif">
+    <h1>SafeBrowser</h1>
+
+    <input
+        id="search"
+        type="text"
+        placeholder="Search the web"
+        style="width:60%;padding:12px;font-size:16px;"
+    >
+
+    <br><br>
+
+    <button onclick="goSearch()" style="padding:10px 20px;cursor:pointer;">
+        Search
+    </button>
+</center>
+
+<script>
+console.log("SafeBrowser | © HouseLearning 2026");
+
+function goSearch() {
+    const query = document.getElementById("search").value.trim();
+    if (!query) return;
+
+    // Redirect to the other file with ?q=
+    window.location.href = "search.html?q=" + encodeURIComponent(query);
+}
+
+// Enter key support
+document.getElementById("search").addEventListener("keydown", e => {
+    if (e.key === "Enter") goSearch();
+});
+</script>
+
+</body>
+</html>
